@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            policy.WithOrigins("https://emailsender-1-f8h9.onrender.com") 
+            policy.WithOrigins("https://bhagwatportfolio.netlify.app/") 
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
