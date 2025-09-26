@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            policy.WithOrigins("https://bhagwatportfolio.netlify.app/") 
+            policy.WithOrigins("https://bhagwatportfolio.netlify.app") 
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -31,13 +31,13 @@ var app = builder.Build();
 
     app.UseSwagger();
     app.UseSwaggerUI();
-
+app.UseRouting();
 app.UseCors("AllowReactApp");
 
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseRouting();
+app.MapOpenApi();
 
 app.Run();
 
