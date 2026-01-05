@@ -34,8 +34,11 @@ namespace EmailSender.Controllers
             }
 
             // 2️⃣ Call IP Location API
-            using var httpClient = new HttpClient();
-            var apiUrl = $"https://ip-api.com/json/{ip}";
+            using var httpClient = new HttpClient()
+            {
+                Timeout = TimeSpan.FromSeconds(10)
+            };
+            var apiUrl = $"http://ip-api.com/json/{ip}";
 
             var response = await httpClient.GetAsync(apiUrl);
             if (!response.IsSuccessStatusCode)
