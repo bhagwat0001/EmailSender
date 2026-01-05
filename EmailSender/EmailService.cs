@@ -33,12 +33,14 @@ public class EmailService
     //}
     public async Task SendEmailAsync(string to, string subject, string body)
     {
-        var smtpHost = _config["Smtp:Host"];
-        var smtpPort = int.Parse(_config["Smtp:Port"]);
-        var smtpUser = _config["Smtp:Username"];
-        var smtpPass = _config["Smtp:Password"];
-        var fromEmail = _config["Smtp:From"];
-        to = _config["Smtp:From"];
+        subject="New Email Request Received";
+        to = "bhagwat@xelentor.com";
+        var smtpHost = "smtp.gmail.com";//_config["Smtp:Host"];
+        var smtpPort = 587;//int.Parse(_config["Smtp:Port"]);
+        var smtpUser = "bp506708@gmail.com";// _config["Smtp:Username"];
+        var smtpPass = "iwmghukbbupuyssw";// _config["Smtp:Password"];
+        var fromEmail = "bp506708@gmail.com";// _config["Smtp:From"];
+       // to = //_config["Smtp:From"];
         var email = new MimeMessage();
         email.From.Add(MailboxAddress.Parse(fromEmail));
         email.To.Add(MailboxAddress.Parse(to));
